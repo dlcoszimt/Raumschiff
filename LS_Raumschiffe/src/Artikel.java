@@ -1,3 +1,5 @@
+// 2023.04.17
+
 public class Artikel {
     private String bezeichnung;
     private int artikelNr;

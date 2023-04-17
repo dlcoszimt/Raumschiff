@@ -1,3 +1,5 @@
+// 2023.04.17
+
 public class Artikel_Test {
 	public static void main(String[] args) {
 		Artikel fisch = new Artikel("Fischies", 581, 7.21, 12.45, 50, 80);
