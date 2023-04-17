@@ -1,17 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Raumschiff {
 	private int photonentorpedoAnzahl;
 	private int energieversorgungInProzent;
 	private int schildeInProzent;
 	private int lebenserhaltungssystemInProzent;
 	private int androidenAnzahl;
+	private int maximaleLadungsMenge;
 	private String schiffsname;
-	private String[] broadcastKommunikation;
-	private Ladung[] ladungsverzeichnis;
-	
-	public Raumschiff() {};
-	
-	public Raumschiff(int photonentorpedoAnzahl, int energieversorgungInProzent, int schildeInProzent, int lebenserhaltungssystemInProzent, int androidenAnzahl, String schiffsname, String[] broadcastKommunikation) {
-		
+	private List<String> broadcastKommunikation = new ArrayList<String>();
+	private List<Ladung> ladungsverzeichnis = new ArrayList<Ladung>();
+
+	public Raumschiff() {
+	};
+
+	public Raumschiff(int photonentorpedoAnzahl, int energieversorgungInProzent, int schildeInProzent,
+			int lebenserhaltungssystemInProzent, int androidenAnzahl, String schiffsname) {
+		this.setAndroidenAnzahl(androidenAnzahl);
+		this.setEnergieversorgungInProzent(energieversorgungInProzent);
+		this.setLebenserhaltungssystemInProzent(lebenserhaltungssystemInProzent);
+		this.setPhotonentorpedoAnzahl(photonentorpedoAnzahl);
+		this.setSchiffsname(schiffsname);
+		this.setSchildeInProzent(schildeInProzent);
 	}
 
 	public int getPhotonentorpedoAnzahl() {
@@ -62,20 +73,29 @@ public class Raumschiff {
 		this.schiffsname = schiffsname;
 	}
 
-	public String[] getBroadcastKommunikation() {
+	public int getMaximaleLadungsMenge() {
+		return maximaleLadungsMenge;
+	}
+
+	public void setMaximaleLadungsMenge(int maximaleLadungsMenge) {
+		this.maximaleLadungsMenge = maximaleLadungsMenge;
+	}
+
+	public List<String> getBroadcastKommunikation() {
 		return broadcastKommunikation;
 	}
 
-	public void setBroadcastKommunikation(String[] broadcastKommunikation) {
+	public void setBroadcastKommunikation(ArrayList<String> broadcastKommunikation) {
 		this.broadcastKommunikation = broadcastKommunikation;
 	}
 
-	public Ladung[] getLadungsverzeichnis() {
+	public List<Ladung> getLadungsverzeichnis() {
 		return ladungsverzeichnis;
 	}
 
-	public void setLadungsverzeichnis(Ladung[] ladungsverzeichnis) {
-		this.ladungsverzeichnis = ladungsverzeichnis;
+	public void addLadungsverzeichnis(String ladungsbezeichnung, int ladungsmenge) {
+//		Ladung tmp = new Ladung(ladungsbezeichnung, ladungsmenge);
+		this.ladungsverzeichnis.add(new Ladung(ladungsbezeichnung, ladungsmenge));
 	}
 
 	
