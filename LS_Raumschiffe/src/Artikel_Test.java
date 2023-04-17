@@ -1,4 +1,4 @@
-// 2023.04.17 Test
+// 2023.04.17
 
 public class Artikel_Test {
 	public static void main(String[] args) {
