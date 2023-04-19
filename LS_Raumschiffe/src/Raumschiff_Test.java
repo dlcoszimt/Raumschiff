@@ -1,14 +1,20 @@
 public class Raumschiff_Test {
 
 	public static void main(String[] args) {
-		Raumschiff Pika = new Raumschiff(4, 100, 100, 100, 2, "Pika-Pika");
-		Pika.setLebenserhaltungssystemInProzent(50);
-		Pika.setEnergieversorgungInProzent(10);
-		Pika.addLadungsverzeichnis("Stühle", 3);
-		Pika.addLadungsverzeichnis("Sklaven", 17);
-		System.out.println(Pika.getLebenserhaltungssystemInProzent());
-		System.out.println(Pika.getEnergieversorgungInProzent());
-		System.out.println(Pika.getLadungsverzeichnis());
+		Raumschiff klingonen = new Raumschiff("IKS Hegh'ta", 100, 100, 100, 100, 1, 2);
+		klingonen.addLadungsverzeichnis("Forschungssonde", 35);
+		klingonen.addLadungsverzeichnis("Photonentorpedo", 3);
+		
+		Raumschiff romulaner = new Raumschiff("IRW Khazara", 100, 100, 100, 100, 2, 2);
+		romulaner.addLadungsverzeichnis("Rote Materie", 2);
+		romulaner.addLadungsverzeichnis("Borg-Schrott", 5);
+		romulaner.addLadungsverzeichnis("Plasma-Waffe", 50);
+		
+		Raumschiff vulkanier = new Raumschiff("IKS Hegh'ta", 100, 80, 50, 80, 0, 5);
+		vulkanier.addLadungsverzeichnis("Ferengi Schneckensaft", 200);
+		vulkanier.addLadungsverzeichnis("Bat'leth Klingonen Schwert", 200);
+
+		vulkanier.ladungsverzeichnisAusgeben();
 	}
 
 }
