@@ -14,7 +14,17 @@ public class Raumschiff_Test {
 		vulkanier.addLadungsverzeichnis("Ferengi Schneckensaft", 200);
 		vulkanier.addLadungsverzeichnis("Bat'leth Klingonen Schwert", 200);
 
-		vulkanier.ladungsverzeichnisAusgeben();
+//		klingonen.photonentorpedoSchiessen(romulaner);
+//		klingonen.photonentorpedoLaden(5);
+//		klingonen.photonentorpedoSchiessen(romulaner);
+//		klingonen.photonentorpedoSchiessen(romulaner);
+//		klingonen.photonentorpedoSchiessen(romulaner);
+//		klingonen.photonentorpedoSchiessen(romulaner);
+		
+//		System.out.println(klingonen.getBroadcastKommunikation());
+		vulkanier.zustandRaumschiff();
+		vulkanier.reperaturAndroiden(50, true, false, false);
+		vulkanier.zustandRaumschiff();
 	}
 
 }
