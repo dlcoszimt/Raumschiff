@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.random.*;
 
 public class Raumschiff {
 	private int photonentorpedoAnzahl;
@@ -238,6 +237,27 @@ public class Raumschiff {
 			this.setEnergieversorgungInProzent(this.getEnergieversorgungInProzent() + repatiert);
 		}
 
+	}
+	public void dead(boolean atomisiert) {
+		this.setAndroidenAnzahl(0);
+		this.setEnergieversorgungInProzent(0);
+		this.setHuelleInProzent(0);
+		this.setLebenserhaltungssystemInProzent(0);
+		this.setSchildeInProzent(0);
+		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
+		if (atomisiert) {
+			this.setPhotonentorpedoAnzahl(0);
+			this.ladungsverzeichnis.clear();
+		}
+	}
+
+	public void dead() {
+		this.setAndroidenAnzahl(0);
+		this.setEnergieversorgungInProzent(0);
+		this.setHuelleInProzent(0);
+		this.setLebenserhaltungssystemInProzent(0);
+		this.setSchildeInProzent(0);
+		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
 	}
 
 }

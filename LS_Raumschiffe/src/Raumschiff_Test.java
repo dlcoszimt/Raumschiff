@@ -17,6 +17,7 @@ public class Raumschiff_Test {
 		vulkanier.zustandRaumschiff();
 		vulkanier.reperaturAndroiden(50, true, false, false);
 		vulkanier.zustandRaumschiff();
+		vulkanier.dead();
+		vulkanier.zustandRaumschiff();
 	}
-
 }
