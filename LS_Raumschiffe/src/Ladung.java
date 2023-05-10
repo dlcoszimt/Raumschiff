@@ -1,9 +1,20 @@
-public class Ladung {
-	private String bezeichnung;
-	private int menge;
+public abstract class Ladung {
+	protected String bezeichnung;
+	protected int menge;
+
+	/**
+	 * Zur Initialisierung der Ladung
+	 */
 
 	public Ladung() {
 	}
+
+	/**
+	 * Zur sofortigen deklaration der Ladung
+	 * 
+	 * @param bezeichnung
+	 * @param menge
+	 */
 
 	public Ladung(String bezeichnung, int menge) {
 		this.setBezeichnung(bezeichnung);
@@ -26,10 +37,17 @@ public class Ladung {
 		this.menge = menge;
 	}
 
+	/**
+	 * Gibt die Ladung mit Bezeichnung und Menge wieder
+	 * 
+	 */
 	@Override
-	public String toString() {
-		String tmp = getBezeichnung() + ": " + getMenge();
-		return tmp;
-	}
+	public abstract String toString();
+
+//	@Override
+//	public  String toString() {
+//		String tmp = getBezeichnung() + ": " + getMenge();
+//		return tmp;
+//	}
 
 }

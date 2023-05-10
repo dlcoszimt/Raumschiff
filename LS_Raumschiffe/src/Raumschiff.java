@@ -2,7 +2,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Raumschiff
+ * 
+ * @author dlcoszimt
+ * @version 1.0
+ */
+
 public class Raumschiff {
+
 	private int photonentorpedoAnzahl;
 	private int energieversorgungInProzent;
 	private int schildeInProzent;
@@ -13,8 +21,24 @@ public class Raumschiff {
 	private static List<String> broadcastKommunikation = new ArrayList<String>();
 	private List<Ladung> ladungsverzeichnis = new ArrayList<Ladung>();
 
+	/**
+	 * Initialisiert die Klasse Raumschiff
+	 */
+
 	public Raumschiff() {
 	};
+
+	/**
+	 * Deklariert das Raumschiff
+	 * 
+	 * @param schiffsname
+	 * @param lebenserhaltungssystemInProzent
+	 * @param energieversorgungInProzent
+	 * @param huelleInProzent
+	 * @param schildeInProzent
+	 * @param photonentorpedoAnzahl
+	 * @param androidenAnzahl
+	 */
 
 	public Raumschiff(String schiffsname, int lebenserhaltungssystemInProzent, int energieversorgungInProzent,
 			int huelleInProzent, int schildeInProzent, int photonentorpedoAnzahl, int androidenAnzahl) {
@@ -38,6 +62,11 @@ public class Raumschiff {
 	public int getEnergieversorgungInProzent() {
 		return energieversorgungInProzent;
 	}
+
+	/**
+	 * 
+	 * @param energieversorgungInProzent
+	 */
 
 	public void setEnergieversorgungInProzent(int energieversorgungInProzent) {
 		if (energieversorgungInProzent > 100) {
@@ -95,6 +124,9 @@ public class Raumschiff {
 		Raumschiff.broadcastKommunikation.add(message);
 	}
 
+	/**
+	 * Gibt das Ladungsverzeichnis f&uuml;r das Raumschiff aus
+	 */
 	public void ladungsverzeichnisAusgeben() {
 		for (int i = 0; i < ladungsverzeichnis.size(); i++) {
 			System.out.println(ladungsverzeichnis.get(i));
@@ -112,6 +144,7 @@ public class Raumschiff {
 
 	public void addLadungsverzeichnis(String ladungsbezeichnung, int ladungsmenge) {
 		this.ladungsverzeichnis.add(new Ladung(ladungsbezeichnung, ladungsmenge));
+//		this.ladungsverzeichnis.add(new Transportgut());
 	}
 
 	public void zustandRaumschiff() {
@@ -124,6 +157,10 @@ public class Raumschiff {
 		return huelleInProzent;
 	}
 
+	/**
+	 * Setter f&uuml;r HuelleInProzent
+	 */
+
 	public void setHuelleInProzent(int huelleInProzent) {
 		if (huelleInProzent > 100) {
 			this.huelleInProzent = 100;
@@ -132,14 +169,15 @@ public class Raumschiff {
 		}
 	}
 
-	@SuppressWarnings("unused")
+//	@SuppressWarnings("unused")
 	public boolean existiertRaumschiff(Raumschiff zielRaumschiff) {
-		if (true) {
-			return true;
-		} else {
-			return false;
-		}
+		return true;
 	}
+
+	/**
+	 * 
+	 * @param schiff
+	 */
 
 	public void treffer(Raumschiff schiff) {
 		System.out.println(this.getSchiffsname() + " wurde getroffen!");
@@ -155,6 +193,12 @@ public class Raumschiff {
 		}
 	}
 
+	/**
+	 * Schießt einen Photonentorpedo wenn einer vorhanden ist
+	 * 
+	 * @param zielRaumschiff
+	 */
+
 	public void photonentorpedoSchiessen(Raumschiff zielRaumschiff) {
 		if (this.existiertRaumschiff(zielRaumschiff)) {
 			if (this.getPhotonentorpedoAnzahl() > 0) {
@@ -167,6 +211,12 @@ public class Raumschiff {
 		}
 	}
 
+	/**
+	 * L&auml;d sofern es Photonentorpedos im Lager vorhanden sind, diese mit der
+	 * angegeben menge nach
+	 * 
+	 * @param nachladenMenge Ist die menge die du aus dem Lager nachladen willst
+	 */
 	public void photonentorpedoLaden(int nachladenMenge) {
 		boolean tmp = false;
 		for (int i = 0; i < this.ladungsverzeichnis.size(); i++) {
@@ -190,6 +240,10 @@ public class Raumschiff {
 		}
 	}
 
+	/**
+	 * Schießt mit der Phaserkanone wenn genug Energie vorhanden ist
+	 * (Energieversorgung &gt; 50)
+	 */
 	public void phaserkanoneSchiessen() {
 		if (this.getEnergieversorgungInProzent() < 50) {
 			addBroadcastKommunikation("-=*Click*=-");
@@ -198,6 +252,10 @@ public class Raumschiff {
 			System.out.println("Phaserkanone abgeschossen");
 		}
 	}
+
+	/**
+	 * Gibt die Eckdaten f&uuml;r das Raumschiff an
+	 */
 
 	@Override
 	public String toString() {
@@ -211,53 +269,60 @@ public class Raumschiff {
 				this.getPhotonentorpedoAnzahl(), this.getAndroidenAnzahl());
 	}
 
+	/**
+	 * Repariert das Schiff zu einem gewissen zufall
+	 * 
+	 * @param androiden         Gibt die Anzahl der Androiden an die das Raumschiff
+	 *                          reparieren
+	 * @param huelle            Gibt an ob die Huelle repariert werden soll
+	 * @param schilde           Gibt an ob die Schilde repariert werden sollen
+	 * @param energieversorgung Gibt an ob die Energieversorgung repariert werden
+	 *                          soll
+	 */
+
 	public void reperaturAndroiden(int androiden, boolean huelle, boolean schilde, boolean energieversorgung) {
 		int x = 0;
 		int rand = new Random().nextInt(101);
 		if (androiden > this.getAndroidenAnzahl()) {
 			androiden = this.getAndroidenAnzahl();
 		}
-		if (huelle) {
+		if (huelle)
 			x++;
-		}
-		if (schilde) {
+		if (schilde)
 			x++;
-		}
-		if (energieversorgung) {
+		if (energieversorgung)
 			x++;
-		}
 		int repatiert = (rand * androiden) / x;
-		if (huelle) {
-			this.setHuelleInProzent(this.getHuelleInProzent() + repatiert);
-		}
-		if (schilde) {
-			this.setSchildeInProzent(this.getSchildeInProzent() + repatiert);
-		}
-		if (energieversorgung) {
-			this.setEnergieversorgungInProzent(this.getEnergieversorgungInProzent() + repatiert);
-		}
+
+		if (huelle)
+			this.huelleInProzent = +repatiert;
+		if (schilde)
+			this.schildeInProzent = +repatiert;
+		if (energieversorgung)
+			this.energieversorgungInProzent = +repatiert;
 
 	}
-	public void dead(boolean atomisiert) {
-		this.setAndroidenAnzahl(0);
-		this.setEnergieversorgungInProzent(0);
-		this.setHuelleInProzent(0);
-		this.setLebenserhaltungssystemInProzent(0);
-		this.setSchildeInProzent(0);
-		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
-		if (atomisiert) {
-			this.setPhotonentorpedoAnzahl(0);
-			this.ladungsverzeichnis.clear();
-		}
-	}
-
-	public void dead() {
-		this.setAndroidenAnzahl(0);
-		this.setEnergieversorgungInProzent(0);
-		this.setHuelleInProzent(0);
-		this.setLebenserhaltungssystemInProzent(0);
-		this.setSchildeInProzent(0);
-		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
-	}
+//	
+//	public void dead(boolean atomisiert) {
+//		this.setAndroidenAnzahl(0);
+//		this.setEnergieversorgungInProzent(0);
+//		this.setHuelleInProzent(0);
+//		this.setLebenserhaltungssystemInProzent(0);
+//		this.setSchildeInProzent(0);
+//		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
+//		if (atomisiert) {
+//			this.setPhotonentorpedoAnzahl(0);
+//			this.ladungsverzeichnis.clear();
+//		}
+//	}
+//
+//	public void dead() {
+//		this.setAndroidenAnzahl(0);
+//		this.setEnergieversorgungInProzent(0);
+//		this.setHuelleInProzent(0);
+//		this.setLebenserhaltungssystemInProzent(0);
+//		this.setSchildeInProzent(0);
+//		this.setSchiffsname(this.getSchiffsname() + " Schrotthaufen");
+//	}
 
 }
