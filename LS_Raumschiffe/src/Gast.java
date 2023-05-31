@@ -17,8 +17,8 @@ public class Gast extends Ladung {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return "Gast";
+		return "Gast (" + "bezeichnung=\"" + this.bezeichnung + '\"' + ", menge=" + this.menge + ", heimatplanet="
+				+ this.heimatplanet + ", sprache=" + this.sprache + ", verpflegung=" + this.verpflegung.name() + ')';
 	}
 
 	public String getSprache() {

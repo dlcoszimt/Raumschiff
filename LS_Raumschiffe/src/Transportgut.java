@@ -41,8 +41,8 @@ public class Transportgut extends Ladung {
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Transportgut (" + "bezeichnung=\"" + this.bezeichnung + '\"' + ", menge=" + this.menge + ", laenge="
+				+ this.laenge + ", breite=" + this.breite + ", hoehe=" + this.hoehe + ')';
 	}
 
 }

@@ -142,11 +142,14 @@ public class Raumschiff {
 		}
 	}
 
-	public void addLadungsverzeichnis(String ladungsbezeichnung, int ladungsmenge) {
-		this.ladungsverzeichnis.add(new Ladung(ladungsbezeichnung, ladungsmenge));
-//		this.ladungsverzeichnis.add(new Transportgut());
+	public void addGast(String bezeichnung, String heimatplanet, String sprache, Verpflegung verpflegung, int menge) {
+		this.ladungsverzeichnis.add(new Gast(bezeichnung, menge, heimatplanet, sprache, verpflegung));
 	}
-
+	
+	public void addTransportgut(String bezeichnung, int menge, float hoehe, float breite, float laenge) {
+		this.ladungsverzeichnis.add(new Transportgut(bezeichnung, menge, hoehe, breite, laenge));
+	}
+	
 	public void zustandRaumschiff() {
 		String tmp = "Schiffsname: %s%n Schild bei: %d%%%n Hülle bei: %d%%%n Energieversorgung bei: %d%%%n Lebenserhaltungssystem bei: %d%%%n";
 		System.out.printf(tmp, this.getSchiffsname(), this.getSchildeInProzent(), this.getHuelleInProzent(),
@@ -244,7 +247,7 @@ public class Raumschiff {
 	 * Schießt mit der Phaserkanone wenn genug Energie vorhanden ist
 	 * (Energieversorgung &gt; 50)
 	 */
-	public void phaserkanoneSchiessen() {
+	public void phaserkanoneSchiessen(	) {
 		if (this.getEnergieversorgungInProzent() < 50) {
 			addBroadcastKommunikation("-=*Click*=-");
 		} else {
