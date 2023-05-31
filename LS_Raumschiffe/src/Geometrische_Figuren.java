@@ -7,8 +7,8 @@ public class Geometrische_Figuren {
 		Dreieck d2 = new Dreieck("\\u001B[34m", 1.0, 1.0, 3.0);
 
 		System.out.println(k1);
-//		System.out.println(d1);
-//		System.out.println(d2);
+		System.out.println(d1);
+		System.out.println(d2);
 	}
 }
 
